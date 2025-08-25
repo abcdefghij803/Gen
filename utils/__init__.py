@@ -1,44 +1,17 @@
 """
-Utils package initializer
-Exposes all handlers, helpers, and api functions for easy import
+Handlers package initializer
+Automatically imports and exposes all handlers as a list.
 """
 
-# Handlers (inside utils)
-from .start import start_handler
-from .keygen import keygen_handler
-from .usage import usage_handler
-from .plans import plans_handler
-from .admins import admin_handler
+from . import start, keygen, usage, plans, admin
 
-# Helpers
-from .helpers import (
-    generate_random_string,
-    current_time,
-    is_admin,
-    format_plan,
-)
-
-# API functions
-from .api import (
-    youtube_search,
-    get_video_info,
-)
-
-__all__ = [
-    # Handlers
-    "start_handler",
-    "keygen_handler",
-    "usage_handler",
-    "plans_handler",
-    "admin_handler",
-
-    # Helpers
-    "generate_random_string",
-    "current_time",
-    "is_admin",
-    "format_plan",
-
-    # API
-    "youtube_search",
-    "get_video_info",
+# List of all handler register functions
+ALL_HANDLERS = [
+    start.register,
+    keygen.register,
+    usage.register,
+    plans.register,
+    admin.register,
 ]
+
+__all__ = ["ALL_HANDLERS"]
