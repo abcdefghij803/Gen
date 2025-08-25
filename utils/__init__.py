@@ -1,24 +1,25 @@
 """
-Combined initializer for Handlers and Utils
-This file is optional - just for unified imports
+Utils package initializer
+Exposes all handlers, helpers, and api functions for easy import
 """
 
-# ------------------ Handlers ------------------ #
-from utils.start import start_handler
-from utils.keygen import keygen_handler
-from utils.usage import usage_handler
-from utils.plans import plans_handler
-from utils.admin import admin_handler
+# Handlers (inside utils)
+from .start import start_handler
+from .keygen import keygen_handler
+from .usage import usage_handler
+from .plans import plans_handler
+from .admins import admin_handler
 
-# ------------------ Utils ------------------ #
-from utils.helpers import (
+# Helpers
+from .helpers import (
     generate_random_string,
     current_time,
     is_admin,
     format_plan,
 )
 
-from utils.api import (
+# API functions
+from .api import (
     youtube_search,
     get_video_info,
 )
@@ -31,11 +32,13 @@ __all__ = [
     "plans_handler",
     "admin_handler",
 
-    # Utils
+    # Helpers
     "generate_random_string",
     "current_time",
     "is_admin",
     "format_plan",
+
+    # API
     "youtube_search",
     "get_video_info",
 ]
