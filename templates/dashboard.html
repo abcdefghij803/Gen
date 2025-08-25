@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>KeyBot Dashboard</title></head>
+<body style="font-family:Arial;background:#071029;color:#e6eef8;padding:20px">
+<h2>Dashboard — User {{ user_id }}</h2>
+{% if keys %}
+  <table border="0" cellpadding="8" cellspacing="0" style="background:#081224;padding:8px;border-radius:8px">
+    <tr><th>API Key</th><th>Plan</th><th>Expires</th><th>Daily</th><th>Per-min</th><th>Videos</th></tr>
+    {% for k in keys %}
+    <tr>
+      <td><code>{{ k._id }}</code></td>
+      <td>{{ k.plan }}</td>
+      <td>{{ k.expires_at_iso }}</td>
+      <td>{{ k.daily_count }}</td>
+      <td>{{ k.minute_count }}</td>
+      <td>{{ k.video_count }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  <p>No keys found for this user.</p>
+{% endif %}
+<p><a href="/generate">← Back</a></p>
+</body></html>
