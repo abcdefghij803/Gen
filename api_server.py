@@ -2,8 +2,8 @@ from flask import Flask, request, jsonify, render_template, redirect, url_for
 from datetime import datetime, timezone, timedelta
 from functools import wraps
 from config import settings
-from database.db import create_key, get_key, get_keys_for_user, reset_counters_if_needed, charge_usage, set_key
-from utils.api import yt_search_sync, yt_stream_sync
+from db import create_key, get_key, get_keys_for_user, reset_counters_if_needed, charge_usage, set_key
+from api import yt_search_sync, yt_stream_sync
 
 app = Flask(__name__, template_folder='templates')
 
